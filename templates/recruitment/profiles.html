@@ -1,0 +1,60 @@
+{% extends "recruitment/recruitment_base.html" %}
+{% load static %}
+{% block titulo %} Index {% endblock titulo %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static "css/style.css"%}">
+{% endblock extra_css %}
+{% block contenido_principal %}
+<div class="col-9 p-4">
+    <h1 class="pb-4 text-center">Ingresa tus datos</h1>
+    <form class="row g-3  border border-1 border-dark rounded-2 p-4">
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Email</label>
+          <input type="email" class="form-control" id="inputEmail4">
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="inputPassword4">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Domicilio</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="1202 Av. Libertador ">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress2" class="form-label">Domicilio 2 (opcional)</label>
+          <input type="text" class="form-control" id="inputAddress2" placeholder="Departamente, Estudio, o Piso">
+        </div>
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">Ciudad</label>
+          <input type="text" class="form-control" id="inputCity">
+        </div>
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">Provincia</label>
+          <select id="inputState" class="form-select">
+            <option selected>Elige...</option>
+            <option>...</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label for="inputZip" class="form-label">Zip</label>
+          <input type="text" class="form-control" id="inputZip">
+        </div>
+        <div class="col-6">
+            <label for="formFile" class="form-label">Subir archivo</label>
+            <input class="form-control" type="file" id="formFile">
+        </div>
+        <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+              Check me out
+            </label>
+          </div>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+      </form>
+  </div>
+
+{% endblock contenido_principal %}

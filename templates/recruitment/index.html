@@ -1,0 +1,39 @@
+{% extends "recruitment/recruitment_base.html" %}
+{% load static %}
+{% block titulo %} Index {% endblock titulo %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static "css/style.css"%}">
+{% endblock extra_css %}
+{% block contenido_principal %}
+
+<div class="col-9 p-4">
+    <h1 class="text-center">Perfiles</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4 p-4">
+
+        {% if candidatos|length > 0 %}
+            {% for candidato in candidatos %}
+
+            <div class="col text-center">
+              <div class="card h-100 border-dark">
+                <div class="p-3">
+                  <img class="card-img-top mx-auto" alt="{{candidato.nombre}}" style="width: 150px; height: 150px;" src="{% static candidato.portada.imagen %}">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{candidato.nombre}}</h5>
+                  <p class="card-text">{{candidato.profesion}}</p>
+                  <p class="card-text">{{candidato.ciudad}}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="row justify-content-center">
+                <div class="col text-center">
+                  <div class="alert alert-warning" role="alert">
+                    <p>No hay candidatos disponibles</p>
+                  </div>
+                </div>
+            </div>
+        {% endif %}
+
+{% endblock contenido_principal %}

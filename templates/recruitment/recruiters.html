@@ -1,0 +1,39 @@
+{% extends "recruitment/recruitment_base.html" %}
+{% load static %}
+{% block titulo %} Reclutadores {% endblock titulo %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static "css/style.css"%}">
+{% endblock extra_css %}
+{% block contenido_principal %}
+
+<div class="col-9 p-4">
+    <h1 class="text-center">Perfiles</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4 p-4">
+
+        {% if reclutadores|length > 0 %}
+            {% for reclutador in reclutadores %}
+
+            <div class="col text-center">
+              <div class="card h-100 border-dark">
+                <div class="p-3">
+                  <img class="card-img-top mx-auto" alt="{{reclutador.nombre}}" style="width: 150px; height: 150px;" src="{% static reclutador.portada.imagen %}">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{reclutador.nombre}}</h5>
+                  <p class="card-text">{{reclutador.profesion}}</p>
+                  <p class="card-text">{{reclutador.ciudad}}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="row justify-content-center">
+                <div class="col text-center">
+                  <div class="alert alert-warning" role="alert">
+                    <p>No hay reclutadores disponibles</p>
+                  </div>
+                </div>
+            </div>
+        {% endif %}
+
+{% endblock contenido_principal %}
